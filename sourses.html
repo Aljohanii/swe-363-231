@@ -2,22 +2,21 @@
 <html>
 <head>
     <title>suggest sources</title>
+    <link rel="stylesheet" href="css_style.css"/>
 </head>
 
 <body>
+  <div>
     <form action="">
   <label for="Email">Write your Email: </label>
   <input id="Email" type="email" placeholder="Exmaple@gmail.com">
-  <div>
+  
       <label for="number">Write your phone number: </label>
       <input id="number" type="tel" name="phone" placeholder="05..." >
-  </div>
-  <div>
+  
       <label for="Birthday">Birthday: </label>
       <input type="date">
-  </div>
-  
-  <div>
+
     <label for="major" >your major</label>
     <input list="majors" id="major" name="major" />
     
@@ -26,9 +25,10 @@
       <option value="swe"></option>
       <option value="coe"></option>
     </datalist>
-  </div>
   </form>
-      <div>
+  </div>
+  
+  <div>
     <label for="add-sources" >add a new source:</label>
     <input list="sources" id="add-sources" name="sor" />
     
@@ -42,7 +42,7 @@
     <form action="http://127.0.0.1:5500/thankYou.html">
     <input type="submit" value="send">
     </form>
-    </div>
+  </div>
 
 </body>
 </html>
