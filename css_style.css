@@ -1,8 +1,95 @@
 body{
-    background-color: black;
-    color: white;  
+    background-color:#011526;
+    color: gold;  
+    
 }
-a{
-    color: gold}
+body a:hover{
+    cursor: pointer;
+}
+
+.tablePhoto{
+    background-color:aliceblue;
+}
+a,#sources{
+    color: #F2A81D}
 a:hover{
-    color: silver}
+    color: #BFBFBD}
+   /* h1{
+        font-family:Serif;
+        font-size: 20px; 
+        font-weight:100;
+        width:fit-content;
+        text-decoration:underline gold;
+        text-shadow:-0.25px -0.25px 0px silver ;
+        
+
+}*/
+p{
+    font-family:Serif;
+    
+}
+
+img{
+    border-radius: 5px;
+}
+table{
+    border-radius: 5px;
+}
+.main-head,.vid,.table1,.table2{
+    margin-bottom: 150px;
+}
+footer{
+
+    background-color:#014040;
+}
+th{
+    text-transform: uppercase;
+}
+.top{
+    background-color:#2899a8;
+}
+em{
+    background-color:#0d168a;
+}
+#the_most_important{
+    text-transform: uppercase;
+    background-color:#0d168a;
+}
+h2{
+    font-family: sans-serif;
+}
+h1,h2,h3,h4,h5,h6{
+    text-transform: capitalize;
+}
+h2 + p::first-letter {
+    font-size: x-large;
+  }
+tr:hover{
+    background-color:#BFBFBD;
+}
+nav ul li,#sources{
+    display: inline;
+    
+}
+nav ul li:first-child{
+    text-decoration: underline;
+}
+nav ul li:not(:first-child) a {
+    text-decoration: none;
+}
+tr:nth-last-of-type(even){
+    background-color:silver;
+}
+::selection{
+    background-color:#e5eaee;
+    color:#011526;
+}
+form input{
+    height: 20px;
+}
+form input[type="text"]{
+    border-color:lightgray
+}
+form input[name="message"]{
+    height: 50px;
+}
