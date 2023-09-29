@@ -1,0 +1,340 @@
+@import url('https://fonts.googleapis.com/css2?family=Kufam&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Kufam&display=swap');
+body{
+    background-color:#fff;
+    color: #02A28F;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+   
+      
+    
+}
+
+body a:hover{
+    cursor: pointer;
+}
+nav{
+    width: 1024px;
+    height: 70px;
+    border-radius: 5px;
+    background-color:#02A28F ;
+    margin-bottom: 15px;
+    position:sticky;
+    top: 0px;
+    box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.10);
+    
+    
+}
+nav p{
+    color: #FFF;
+    font-family: Montserrat;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+#hum{
+    width: 20px;
+    position: absolute;
+    top: 0px;
+    right: 0;
+    }
+    nav ul {
+        transition: background-color 0.5s ease ;
+        display:flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        
+    }
+    
+    nav ul li a,nav ul li p {
+        color: #02A28F;
+        
+    }
+    
+    nav ul:hover li p {
+        color:#fff; 
+        transition-delay: 0.1s;
+    }
+    nav ul:hover li a{
+        color: #fff; 
+        transition-delay: 0.1s;
+        font-size: 16px
+        
+    }
+    nav ul li{
+        padding: 4px;
+    }
+    .baner {
+        width: 623.755px;
+        height: 400.261px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+      
+      .baner img {
+        width: 623.755px;
+        height: 332.261px;
+        flex-shrink: 0;
+      }
+      
+      .baner h1 {
+        margin-top: 0;
+        margin-bottom: 0;
+        flex-shrink: 0;
+        color: #02A28F;
+        font-family: Montserrat;
+        font-size: 32px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        
+      }
+      
+      .baner h2 {
+        margin-top: 10px;
+        flex-shrink: 0;
+        color: #02A28F;
+        font-family: Montserrat;
+        font-size: 25px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+      }
+      
+    .chanlle  {
+        background-color: #01473E; 
+        border: none;
+        color: white;
+        border-radius: 10px;
+        padding: 15px 15px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin:2px;
+      }
+    .Group3 video ,.Group4 video,.Group5 video{
+        width: 623.755px;
+        height: 332.261px;
+        flex-shrink: 0;
+        margin-bottom: 15px;}
+    .Group3 p{
+        width: 624px;
+        height: 48px;
+        flex-shrink: 0;
+        color: #fff;
+        border-radius: 10px;
+        background: #02A28F;
+        box-shadow: 0px 10px 10px 0px rgba(0, 0, 0, 0.10);
+        margin-bottom: 1px;
+
+    }
+    .Group4{
+        width: 600px;
+        margin: 60px;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+    }
+    .table1{
+        
+        width: 388px;
+        margin-bottom: 15px;
+    }
+
+    .table2{
+        width: 388px;
+        margin-bottom: 15px;
+        
+    }
+    .table2 p{
+        flex-shrink: 0;
+        color: #02A28F;
+        font-family: Montserrat;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+    }
+
+    footer{
+        width: 1024px;
+        height: 70px;
+        flex-shrink: 0;
+        background: #02A28F;
+    }
+
+    footer h2{
+        color: #FFF;
+        font-family: Montserrat;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+        color: #FFF;
+        font-family: Montserrat;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+        display:flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+
+    }
+
+
+h1{
+    color: #02A28F;
+    font-family: Montserrat;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+h2{
+    color: #02A28F;
+    font-family: Montserrat;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+p{
+    color: #02A28F;
+    font-family: Montserrat;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal; 
+}
+.tablePhoto{
+    background-color:aliceblue;
+}
+
+a:hover{
+    color: #BFBFBD}
+
+p{
+    font-family:Serif;
+    
+}
+
+img{
+    border-radius: 5px;
+}
+table{
+    border-radius: 5px;
+}
+
+th{
+    text-transform: uppercase;
+}
+.top{
+    background-color:#2899a8;
+}
+em{
+    background-color:#0717ee;
+}
+#the_most_important{
+    text-transform: uppercase;
+    background-color:#42434e;
+}
+h2{
+    font-family: sans-serif;
+}
+h1,h2,h3,h4,h5,h6{
+    text-transform: capitalize;
+}
+h2 + p::first-letter {
+    font-size: x-large;
+  }
+tr:hover{
+    background-color:#BFBFBD;
+}
+
+
+
+tr:nth-last-of-type(even){
+    background-color:silver;
+}
+::selection{
+    background-color:#e5eaee;
+    color:#011526;
+}
+form input{
+    height: 20px;
+}
+form input[type="text"]{
+    border-color:lightgray
+}
+form input[name="message"]{
+    height: 50px;
+}
+p{
+    font-variant:small-caps;
+    
+    
+}
+button{
+    transition:background-color 0.5s ease;
+    
+}
+button:hover{
+    background-color:rgb(100, 56, 170)
+}
+
+
+    /* Loader styles */
+.loader {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50px;
+    height: 50px;
+    border: 5px solid #fff;
+    border-top: 5px solid #011526; /* Change the loader color here */
+    border-radius: 50%;
+    animation: spin 2s linear infinite, hideLoader 2s 2s forwards; /* Added hideLoader animation */
+    z-index: 9999;
+}
+
+/* Animation to make the loader spin */
+@keyframes spin {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* Animation to hide the loader */
+@keyframes hideLoader {
+    0% { opacity: 1; }
+    100% { opacity: 0; display: none; }
+}
+
+.card{
+    width: 300px; 
+    display:flex;
+    flex-direction:column;
+    justify-self: center;
+    align-items: center;
+    
+}
+.not-part-of-the-flow{
+    height: 50px;
+    width: 50px;
+    background-color:red;
+    position: absolute;
+    left:0;
+}
+
+
+
