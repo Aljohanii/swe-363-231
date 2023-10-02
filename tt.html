@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .cell {
+            font-family: sans-serif;
+            font-size: larger;
+            font-weight: bolder;
+            background-color: beige;
+            width: 100px;
+            height: 100px;
+            border: 1px solid black;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor:pointer;
+        }
+
+        .cell:hover {
+            background-color: blanchedalmond;
+        }
+        .row {
+            display: flex;
+        }
+        .rest {
+            font-family: sans-serif;
+            font-size: larger;
+            font-weight: bolder;
+            background-color: rgb(90, 8, 241);
+            width: 200px;
+            height: 100px;
+            border: 1px solid black;
+            display: flex;
+            justify-content: center; 
+            align-items: center; 
+            }
+
+            .rest:hover {
+            background-color: rgb(255, 0, 0);
+            }
+
+            .rest h1 {
+            text-align: center; 
+            margin: 0; 
+            cursor:pointer ;
+            }
+        
+    </style>
+</head>
+
+<body>
+        <!--AHMED ALJOHANI 202065800 SEC 1 -->
+
+
+    <div class="rest" id="rest">
+        <h1>reset</h1>
+    </div>
+    <h1 id="turn">
+        Now it's is <span id="turrn">X</span> turn
+    </h1>
+
+
+    <!-- Board -->
+    <div class="board">
+        <div class="row">
+            <div class="cell" id="cell1"></div>
+            <div class="cell" id="cell2"></div>
+            <div class="cell" id="cell3"></div>
+        </div>
+        <div class="row">
+            <div class="cell" id="cell4"></div>
+            <div class="cell" id="cell5"></div>
+            <div class="cell" id="cell6"></div>
+            
+        </div>
+        <div class="row">
+            <div class="cell" id="cell7"></div>
+            <div class="cell" id="cell8"></div>
+            <div class="cell" id="cell9"></div>
+        </div>
+    </div>
+    <script>
+
+
+        // decided which turn is it
+        let turn = "X"
+        let gameEnded = false
+        let cell1 = document.getElementById("cell1");
+        let cell2 = document.getElementById("cell2");
+        let cell3 = document.getElementById("cell3");
+        let cell4 = document.getElementById("cell4");
+        let cell5 = document.getElementById("cell5");
+        let cell6 = document.getElementById("cell6");
+        let cell7 = document.getElementById("cell7");
+        let cell8 = document.getElementById("cell8");
+        let cell9 = document.getElementById("cell9");
+
+
+
+        const initialCellStyles = {};
+
+        window.addEventListener("load", () => {
+        const cells = document.querySelectorAll(".cell");
+        cells.forEach((cell) => {
+            initialCellStyles[cell.id] = {
+            backgroundColor: cell.style.backgroundColor,
+            
+            };
+        });
+        });
+        document.getElementById("rest").addEventListener("click", () => {
+        // Get a reference to all the cells
+        const cells = document.querySelectorAll(".cell");
+
+        // Loop through each cell and reset its style to the initial state
+        cells.forEach((cell) => {
+            const initialStyle = initialCellStyles[cell.id];
+            cell.style.backgroundColor = initialStyle.backgroundColor;
+            cell.innerText=""
+            // Reset other style properties as needed
+        });
+
+        // Reset the turn and game state as well
+        turn = "X";
+        gameEnded = false;
+        document.getElementById("turn").innerText = "Current turn: X";
+        });
+
+
+        
+        
+
+        // when we click on a cell add the letter 
+        let board = document.getElementsByClassName("board")[0]
+        board.addEventListener("click", cellClicked)
+
+        function cellClicked(event) {
+            let draw = true; // Assume it's a draw
+            let cell = event.target;
+            
+            if (cell.innerText !== "X" && cell.innerText !== "O") {
+                cell.innerText = turn;
+                
+                // Check for a winner
+                if (
+                    (cell1.innerText === "X" && cell2.innerText === "X" && cell3.innerText === "X") ||
+                    (cell1.innerText === "X" && cell4.innerText === "X" && cell7.innerText === "X") ||
+                    (cell3.innerText === "X" && cell6.innerText === "X" && cell9.innerText === "X") ||
+                    (cell2.innerText === "X" && cell5.innerText === "X" && cell8.innerText === "X") ||
+                    (cell4.innerText === "X" && cell5.innerText === "X" && cell6.innerText === "X") ||
+                    (cell7.innerText === "X" && cell8.innerText === "X" && cell9.innerText === "X") ||
+                    (cell1.innerText === "X" && cell5.innerText === "X" && cell9.innerText === "X") ||
+                    (cell3.innerText === "X" && cell5.innerText === "X" && cell7.innerText === "X")
+                ) {
+                    turnLetter = document.getElementById("turn");
+                    turnLetter.innerText = "The winner is X";
+                    gameEnded = true;
+                } else if (
+                    (cell1.innerText === "O" && cell2.innerText === "O" && cell3.innerText === "O") ||
+                    (cell1.innerText === "O" && cell4.innerText === "O" && cell7.innerText === "O") ||
+                    (cell3.innerText === "O" && cell6.innerText === "O" && cell9.innerText === "O") ||
+                    (cell2.innerText === "O" && cell5.innerText === "O" && cell8.innerText === "O") ||
+                    (cell4.innerText === "O" && cell5.innerText === "O" && cell6.innerText === "O") ||
+                    (cell7.innerText === "O" && cell8.innerText === "O" && cell9.innerText === "O") ||
+                    (cell1.innerText === "O" && cell5.innerText === "O" && cell9.innerText === "O") ||
+                    (cell3.innerText === "O" && cell5.innerText === "O" && cell7.innerText === "O")
+                ) {
+                    turnLetter = document.getElementById("turn");
+                    turnLetter.innerText = "The winner is O";
+                    gameEnded = true;
+                }
+
+                // Check for a draw
+                const cells = document.querySelectorAll(".cell");
+                cells.forEach((cell) => {
+                    if (cell.innerText !== "X" && cell.innerText !== "O") {
+                        draw = false; // There is at least one empty cell
+                    }
+                });
+
+                if (!gameEnded && draw) {
+                    // It's a draw
+                    turnLetter = document.getElementById("turn");
+                    turnLetter.innerText = "It's a draw!";
+                    gameEnded = true;
+                }
+
+                if (!gameEnded) {
+                    // change turn
+                    turn = turn === "X" ? "O" : "X";
+
+                    //change title
+  
+                }
+            }
+            //changing the background 
+            if(cell.innerText==="X"){
+                cell.style.backgroundColor="blue"
+            }
+            else{
+                cell.style.backgroundColor="red"
+            }
+        }
+    </script>
+</body>
+
+</html>
