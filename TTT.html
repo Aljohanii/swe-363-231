@@ -64,7 +64,9 @@
 <body>
         <!--AHMED ALJOHANI 202065800 SEC 1 -->
 
-
+        <div >
+            <h1>use the numbers to play using the keyboard</h1>
+        </div>
     <div class="rest" id="rest">
         <h1>reset</h1>
     </div>
@@ -214,6 +216,122 @@
                 cell.style.backgroundColor="red"
             }
         }
+
+        window.addEventListener('keyup',(e)=>{
+            let draw = true; // Assume it's a draw
+            let R=null
+            if(e.key==='1'){
+                if(cell1.innerText===''){
+                    cell1.innerText=turn
+                 R=cell1
+            }
+            }
+            else if(e.key==='2'){
+                if(cell2.innerText===''){
+                    cell2.innerText=turn
+                 R=cell2
+            }
+            }
+            else if(e.key==='3'){
+                if(cell3.innerText===''){
+                    cell3.innerText=turn
+                 R=cell3
+            }
+            }
+            else if(e.key==='4'){
+                if(cell4.innerText===''){
+                    cell4.innerText=turn
+                 R=cell4
+            }
+            }
+            else if(e.key==='5'){
+                if(cell5.innerText===''){
+                    cell5.innerText=turn
+                 R=cell5
+            }
+            }
+            else if(e.key==='6'){
+                if(cell6.innerText===''){
+                    cell6.innerText=turn
+                 R=cell6
+            }
+            }
+            else if(e.key==='7'){
+                if(cell7.innerText===''){
+                    cell7.innerText=turn
+                 R=cell7
+            }
+            }
+            else if(e.key==='8'){
+                if(cell8.innerText===''){
+                    cell8.innerText=turn
+                 R=cell8
+            }
+            }
+            else if(e.key==='9'){
+                if(cell9.innerText===''){
+                    cell9.innerText=turn
+                 R=cell9
+            }
+            }
+
+            
+            if (
+                    (cell1.innerText === "X" && cell2.innerText === "X" && cell3.innerText === "X") ||
+                    (cell1.innerText === "X" && cell4.innerText === "X" && cell7.innerText === "X") ||
+                    (cell3.innerText === "X" && cell6.innerText === "X" && cell9.innerText === "X") ||
+                    (cell2.innerText === "X" && cell5.innerText === "X" && cell8.innerText === "X") ||
+                    (cell4.innerText === "X" && cell5.innerText === "X" && cell6.innerText === "X") ||
+                    (cell7.innerText === "X" && cell8.innerText === "X" && cell9.innerText === "X") ||
+                    (cell1.innerText === "X" && cell5.innerText === "X" && cell9.innerText === "X") ||
+                    (cell3.innerText === "X" && cell5.innerText === "X" && cell7.innerText === "X")
+                ) {
+                    turnLetter = document.getElementById("turn");
+                    turnLetter.innerText = "The winner is X";
+                    gameEnded = true;
+                } else if (
+                    (cell1.innerText === "O" && cell2.innerText === "O" && cell3.innerText === "O") ||
+                    (cell1.innerText === "O" && cell4.innerText === "O" && cell7.innerText === "O") ||
+                    (cell3.innerText === "O" && cell6.innerText === "O" && cell9.innerText === "O") ||
+                    (cell2.innerText === "O" && cell5.innerText === "O" && cell8.innerText === "O") ||
+                    (cell4.innerText === "O" && cell5.innerText === "O" && cell6.innerText === "O") ||
+                    (cell7.innerText === "O" && cell8.innerText === "O" && cell9.innerText === "O") ||
+                    (cell1.innerText === "O" && cell5.innerText === "O" && cell9.innerText === "O") ||
+                    (cell3.innerText === "O" && cell5.innerText === "O" && cell7.innerText === "O")
+                ) {
+                    turnLetter = document.getElementById("turn");
+                    turnLetter.innerText = "The winner is O";
+                    gameEnded = true;
+                }
+
+                // Check for a draw
+                const cells = document.querySelectorAll(".cell");
+                cells.forEach((cell) => {
+                    if (cell.innerText !== "X" && cell.innerText !== "O") {
+                        draw = false; // There is at least one empty cell
+                    }
+                });
+
+                if (!gameEnded && draw) {
+                    // It's a draw
+                    turnLetter = document.getElementById("turn");
+                    turnLetter.innerText = "It's a draw!";
+                    gameEnded = true;
+                }
+            
+            if(R.innerText==="X"){
+                R.style.backgroundColor="blue"
+                 }
+                else{
+                    R.style.backgroundColor="red"
+                }
+            if (!gameEnded) {
+                    // change turn
+                    turn = turn === "X" ? "O" : "X";
+                }
+
+
+        })
     </script>
 </body>
 
