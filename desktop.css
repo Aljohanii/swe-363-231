@@ -338,5 +338,14 @@ button:hover{
     left:0;
 }
 
-
-
+.cavas{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color:#011526
+}
+#bg{
+position:fixed;
+top:0;
+left: 0;
+}

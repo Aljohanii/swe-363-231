@@ -11,12 +11,13 @@
     <meta name="keywords" content="HTML,CSS,JS">
     <meta name="author" content="ahmed aljohani">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
 
 </head>
 <body>
 
     <!-- AHMED ALJOHANI 202065800 section 1 -->
+    <canvas id="bg"></canvas>
    
     <div class="loader"></div>
         <nav>
@@ -179,11 +180,15 @@
     </table>
 </section>
 <footer>
-    <h2>Ahmed ALjhani</h2>
+    <h2>random fact:<span id="fact"></span></h2>
+
 </footer>
+<div id="container"></div>
 
 <div class="not-part-of-the-flow"></div>
 <script>
+
+
 const posts = [
     {
         td1: "HTML",
@@ -193,7 +198,7 @@ const posts = [
     {
         td1: "CSS",
         td2: "2",
-        td3: "seconed thing you will learn after HTML",
+        td3: "second thing you will learn after HTML",
     },
     {
         td1: "JS",
@@ -206,7 +211,7 @@ const posts = [
 
         const thead = document.createElement("thead");
         const headerRow = document.createElement("tr");
-        headerRow.classList.add("top")
+        headerRow.classList.add("top");
         const headers = ["Language", "Order", "When"];
 
         headers.forEach(headerText => {
@@ -235,9 +240,20 @@ const posts = [
         table.appendChild(tbody);
 
 
-        document.body.appendChild(table);
+        const container = document.getElementById("container");
+        container.appendChild(table);
 
+        fetch("https://uselessfacts.jsph.pl/api/v2/facts/random")
+            .then((res) => {
+                return res.json();
+            })
+            .then(data => {
+                let fact=data.text
+                let f = document.getElementById('fact')
+                f.innerText= fact
+            });
 
+     
 </script>
 
 </body>
