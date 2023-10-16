@@ -149,7 +149,7 @@
 
             //Refactor your code to make it shorter using the idea of anonymous functions,
             //arrow syntax and IIFE
-            
+
             const cellClicked = event=> {
                 let cell = event.target;
                 
@@ -362,6 +362,16 @@
 
 
         })
+
+        // i have not used in my code because they do not fit aneywhere but i did a random one 
+        const numbers = [2, 4, 6, 8, 10, 12, 14, 16];
+
+        const sum = numbers.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
+       
+        const numbersGreaterThan10 = numbers.filter((number) => number > 10);
+       
+        const doubledNumbers = numbers.map((number) => number * 2);
+        
     </script>
 </body>
 
