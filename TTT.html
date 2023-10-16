@@ -142,80 +142,110 @@
         });
 
 
-        
-        
+          //Go back to your JS files & refactor your code to use function expressions instead
+            // of declarations when you don’t need the function to be available throughout
+            // your code
+            
+
+            //Refactor your code to make it shorter using the idea of anonymous functions,
+            //arrow syntax and IIFE
+            
+            const cellClicked = event=> {
+                let cell = event.target;
+                
+                // Refactor your code to break down the complex operations inside function into
+                // nested functions
+
+                if (!cellIsMarked(cell) && !gameEnded) {
+                    markCell(cell);
+
+                    // Check for a winner
+                    if (checkWinner()) {
+                        declareWinner(turn);
+                    } else {
+                        // Check for a draw
+                        if (checkDraw()) {
+                            declareDraw();
+                        } else {
+                            // Switch turns
+                            switchTurn();
+                        }
+                    }
+                }
+            };
+
+            // Helper function to check if a cell is already marked
+            const cellIsMarked = function (cell) {
+                return cell.innerText === "X" || cell.innerText === "O";
+            };
+
+            // Helper function to mark the cell and change the background color
+            const markCell = function (cell) {
+                cell.innerText = turn;
+                cell.style.backgroundColor = turn === "X" ? "blue" : "red";
+            };
+
+            // Helper function to check if a player has won
+            const checkWinner = function () {
+                const winCombinations = [
+                    [cell1, cell2, cell3],
+                    [cell1, cell4, cell7],
+                    [cell3, cell6, cell9],
+                    [cell2, cell5, cell8],
+                    [cell4, cell5, cell6],
+                    [cell7, cell8, cell9],
+                    [cell1, cell5, cell9],
+                    [cell3, cell5, cell7]
+                ];
+
+                for (const combination of winCombinations) {
+                    if (checkCells(combination, "X") || checkCells(combination, "O")) {
+                        return true;
+                    }
+                }
+                return false;
+            };
+
+            // Helper function to check if all cells in a combination have the same mark
+            const checkCells = function (cells, mark) {
+                return cells.every((cell) => cell.innerText === mark);
+            };
+
+            // Helper function to declare a winner
+            const declareWinner = function (winner) {
+                turnLetter = document.getElementById("turn");
+                turnLetter.innerText = `The winner is ${winner}`;
+                gameEnded = true;
+            };
+
+            // Helper function to check for a draw
+            const checkDraw = function () {
+                const cells = document.querySelectorAll(".cell");
+                return Array.from(cells).every((cell) => cellIsMarked(cell));
+            };
+
+            // Helper function to declare a draw
+            const declareDraw = function () {
+                turnLetter = document.getElementById("turn");
+                turnLetter.innerText = "It's a draw!";
+                gameEnded = true;
+            };
+
+            // Helper function to switch turns
+            const switchTurn = function () {
+                turn = turn === "X" ? "O" : "X";
+            };
+
+            // Event listener for cell clicks
+            document.querySelectorAll(".cell").forEach((cell) => {
+                cell.addEventListener("click", cellClicked);
+            });
 
         // when we click on a cell add the letter 
         let board = document.getElementsByClassName("board")[0]
         board.addEventListener("click", cellClicked)
 
-        function cellClicked(event) {
-            let draw = true; // Assume it's a draw
-            let cell = event.target;
-            
-            if (cell.innerText !== "X" && cell.innerText !== "O") {
-                cell.innerText = turn;
-                
-                // Check for a winner
-                if (
-                    (cell1.innerText === "X" && cell2.innerText === "X" && cell3.innerText === "X") ||
-                    (cell1.innerText === "X" && cell4.innerText === "X" && cell7.innerText === "X") ||
-                    (cell3.innerText === "X" && cell6.innerText === "X" && cell9.innerText === "X") ||
-                    (cell2.innerText === "X" && cell5.innerText === "X" && cell8.innerText === "X") ||
-                    (cell4.innerText === "X" && cell5.innerText === "X" && cell6.innerText === "X") ||
-                    (cell7.innerText === "X" && cell8.innerText === "X" && cell9.innerText === "X") ||
-                    (cell1.innerText === "X" && cell5.innerText === "X" && cell9.innerText === "X") ||
-                    (cell3.innerText === "X" && cell5.innerText === "X" && cell7.innerText === "X")
-                ) {
-                    turnLetter = document.getElementById("turn");
-                    turnLetter.innerText = "The winner is X";
-                    gameEnded = true;
-                } else if (
-                    (cell1.innerText === "O" && cell2.innerText === "O" && cell3.innerText === "O") ||
-                    (cell1.innerText === "O" && cell4.innerText === "O" && cell7.innerText === "O") ||
-                    (cell3.innerText === "O" && cell6.innerText === "O" && cell9.innerText === "O") ||
-                    (cell2.innerText === "O" && cell5.innerText === "O" && cell8.innerText === "O") ||
-                    (cell4.innerText === "O" && cell5.innerText === "O" && cell6.innerText === "O") ||
-                    (cell7.innerText === "O" && cell8.innerText === "O" && cell9.innerText === "O") ||
-                    (cell1.innerText === "O" && cell5.innerText === "O" && cell9.innerText === "O") ||
-                    (cell3.innerText === "O" && cell5.innerText === "O" && cell7.innerText === "O")
-                ) {
-                    turnLetter = document.getElementById("turn");
-                    turnLetter.innerText = "The winner is O";
-                    gameEnded = true;
-                }
-
-                // Check for a draw
-                const cells = document.querySelectorAll(".cell");
-                cells.forEach((cell) => {
-                    if (cell.innerText !== "X" && cell.innerText !== "O") {
-                        draw = false; // There is at least one empty cell
-                    }
-                });
-
-                if (!gameEnded && draw) {
-                    // It's a draw
-                    turnLetter = document.getElementById("turn");
-                    turnLetter.innerText = "It's a draw!";
-                    gameEnded = true;
-                }
-
-                if (!gameEnded) {
-                    // change turn
-                    turn = turn === "X" ? "O" : "X";
-
-                    //change title
-  
-                }
-            }
-            //changing the background 
-            if(cell.innerText==="X"){
-                cell.style.backgroundColor="blue"
-            }
-            else{
-                cell.style.backgroundColor="red"
-            }
-        }
+        
 
         window.addEventListener('keyup',(e)=>{
             let draw = true; // Assume it's a draw

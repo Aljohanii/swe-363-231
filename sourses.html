@@ -77,10 +77,17 @@
     // ctx.closePath()
     // ctx.stroke()
     let sig = false;
-    function start(){
+
+    
+    //Go back to your JS files & refactor your code to use function expressions instead
+    // of declarations when you don’t need the function to be available throughout
+    // your code
+
+
+    const start=function startt(){
       sig = true
     }
-    function end(){
+    const end=function endd(){
       sig = false
       ctx.beginPath()
     }
