@@ -253,6 +253,44 @@ const posts = [
                 f.innerText= fact
             });
 
+
+
+
+            // class
+            class Card {
+            constructor(imgSrc, title, description, channelLink) {
+                this.imgSrc = imgSrc;
+                this.title = title;
+                this.description = description;
+                this.channelLink = channelLink;
+            }
+
+            createCardElement() {
+                const cardElement = document.createElement("div");
+                cardElement.classList.add("card");
+                
+                cardElement.innerHTML = `
+                    <img src="${this.imgSrc}" class="card-img-top" alt="...">
+                    <div>
+                        <h5 class="card-title">${this.title}</h5>
+                        <p class="card-text">${this.description}</p>
+                        <button class="chanlle"><a href="${this.channelLink}" target="_blank">chanlle</a></button>
+                    </div>
+                `;
+                
+                return cardElement;
+            }
+        }
+        const cards = [
+        new Card("photos/tired.jpg", "im tired", "tired"),
+        new Card("photos/tired.jpg", "im tired", "tired"),
+    ];
+        const cardsContainer = document.querySelector(".Group4");
+        cards.forEach(card => {
+            const cardElement = card.createCardElement();
+            cardsContainer.appendChild(cardElement);
+        });
+
      
 </script>
 
